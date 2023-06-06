@@ -11,22 +11,22 @@ const Homepage = () => {
     {
       id: 1,
       checked: true,
-      item: "Ramen",
+      item: "Cooking oil",
     },
     {
       id: 2,
       checked: false,
-      item: "Sushi",
+      item: "Butter",
     },
     {
       id: 3,
       checked: false,
-      item: "Samosa",
+      item: "Milk",
     },
     {
       id: 4,
       checked: true,
-      item: "malpuva",
+      item: "Eggs",
     },
   ]);
   const [newItem, setNewItem] = useState("");
