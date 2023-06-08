@@ -1,40 +1,23 @@
 import React from "react";
-import Header from '../components/Header';
-import SearchItem from '../components/SearchItem';
-import AddItem from '../components/AddItem';
-import Content from '../components/Content';
-import Footer from '../components/Footer';
-import { useState } from 'react';
+import Header from "../components/Header";
+import SearchItem from "../components/SearchItem";
+import AddItem from "../components/AddItem";
+import Content from "../components/Content";
+import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
+import data from "../data/db.json";
 
 const Homepage = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: "Cooking oil",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "Butter",
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Milk",
-    },
-    {
-      id: 4,
-      checked: true,
-      item: "Eggs",
-    },
-  ]);
+  const [items, setItems] = useState(data.items);
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
 
+  useEffect(() => {
+    localStorage.setItem("shoppinglist", JSON.stringify(items));
+  }, [items]);
+
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(newItems));
   };
 
   const addItem = (item) => {
